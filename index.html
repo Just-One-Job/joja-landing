@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Just One Job Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Fast, privacy-first micro apps that do one thing extremely well. No ads, no tracking, no subscriptions."
+  />
+  <link rel="icon" href="/favicon.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://justonejobapps.com/" />
+  <meta property="og:title" content="Just One Job Apps" />
+  <meta property="og:description" content="Fast, privacy-first micro apps that do one thing extremely well. No ads, no tracking, no subscriptions." />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Just One Job Apps" />
+  <meta name="twitter:description" content="Fast, privacy-first micro apps that do one thing extremely well. No ads, no tracking, no subscriptions." />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Just One Job Apps",
+    "url": "https://justonejobapps.com",
+    "logo": "https://justonejobapps.com/favicon.png",
+    "description": "Fast, privacy-first micro apps that do one thing extremely well.",
+    "email": "hello@justonejobapps.com",
+    "sameAs": []
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020817;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: radial-gradient(circle at top, #020b1f, #020617);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: #022c16;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 100;
+      border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--muted);
+      margin-left: 16px;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        order: -1;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 24px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #022c16;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent),
+        rgba(15, 23, 42, 0.9);
+      padding: 20px;
+    }
+
+    .hero-card-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+    }
+
+    .metric-value {
+      font-weight: 500;
+    }
+
+    .apps {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .app-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .app-card:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .app-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .app-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .app-meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      margin-right: 6px;
+    }
+
+    .app-card a.btn-primary {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+
+    .about {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    footer {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    footer a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="page">
+    <header>
+      <a href="/" class="brand" aria-label="Just One Job Apps home">
+        <div class="logo">1J</div>
+        <div>
+          <div style="font-weight: 600; font-size: 15px;">Just One Job Apps</div>
+          <div style="font-size: 12px; color: var(--muted);">
+            Tiny apps that do one thing extremely well.
+          </div>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#apps">Apps</a>
+        <a href="#about">About</a>
+        <a href="mailto:hello@justonejobapps.com">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <div class="hero-kicker">Indie studio · Privacy first</div>
+          <h1 id="hero-heading">Small, focused apps with zero friction.</h1>
+          <p class="hero-sub">
+            Just One Job Apps builds tiny tools that respect your time and your privacy.
+            No accounts, no ads, no analytics, no subscriptions—just open, use, done.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">No ads</span>
+            <span class="pill">No tracking</span>
+            <span class="pill">No subscriptions</span>
+            <span class="pill">Fast & lightweight</span>
+          </div>
+
+          <div class="cta-row">
+            <a
+              class="btn-primary"
+              href="https://tip.justonejobapps.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Tip Calculator
+            </a>
+            <a class="btn-secondary" href="#apps">
+              View all apps
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Now available on the web at
+            <span style="font-family: monospace;">tip.justonejobapps.com</span>.
+          </div>
+        </div>
+
+        <aside class="hero-visual hero-card">
+          <div class="hero-card-title">Tip Calculator snapshot</div>
+          <div class="metric-row">
+            <span class="metric-label">Bill total</span>
+            <span class="metric-value">$48.00</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Tip (20%)</span>
+            <span class="metric-value">$9.60</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Per person (2)</span>
+            <span class="metric-value">$28.80</span>
+          </div>
+          <div style="margin-top: 14px; font-size: 11px; color: var(--muted);">
+            Designed to be used in seconds: adjust bill, choose a tip, split with friends—without sharing any data.
+          </div>
+        </aside>
+      </section>
+
+      <section id="apps" class="apps" aria-labelledby="apps-heading">
+        <h2 id="apps-heading" class="section-title">Apps</h2>
+        <p class="section-sub">
+          Each app is focused on a single job, so it’s easy to understand and quick to use.
+        </p>
+
+        <article class="app-card">
+          <div>
+            <div class="app-name">Tip Calculator</div>
+            <div class="app-tagline">
+              Figure out tips and splits in a couple of taps.
+            </div>
+            <div class="app-meta">
+              <span class="chip">No account</span>
+              <span class="chip">No data collection</span>
+              <span class="chip">Mobile-friendly web</span>
+            </div>
+          </div>
+          <div>
+            <a
+              class="btn-primary"
+              href="https://tip.justonejobapps.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Use on the web
+            </a>
+          </div>
+        </article>
+
+        <p class="section-sub">
+          More small, focused tools are planned. Each one will follow the same rules:
+          fast to open, obvious to use, and respectful of your privacy.
+        </p>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-heading">
+        <h2 id="about-heading" style="font-size: 15px; margin-bottom: 8px; color: var(--text);">
+          About Just One Job Apps
+        </h2>
+        <p>
+          Just One Job Apps is a tiny indie software studio focused on building everyday
+          tools that do exactly one thing—and do it well. No growth hacks, dark patterns,
+          or engagement tricks.
+        </p>
+        <p style="margin-top: 10px;">
+          The philosophy is simple: if an app helps you finish something quickly and then
+          get back to your life, it’s doing its job.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Just One Job Apps LLC</div>
+      <div>
+        <a href="mailto:hello@justonejobapps.com">hello@justonejobapps.com</a>
+        · <a href="/privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
